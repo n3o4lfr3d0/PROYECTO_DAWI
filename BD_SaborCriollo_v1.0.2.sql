@@ -7,7 +7,6 @@ create database SABORCRIOLLO;
 /*Usar BD*/
 use SABORCRIOLLO;
 
-
 create table tb_Ubigeo(
 cod_Ubigeo char(8) primary key not null,
 departamento varchar (45) not null,
@@ -15,14 +14,10 @@ provincia varchar (45) not null,
 distrito varchar (45)not null
 );
 
-
 create table tb_TipoDocumento (
 idTipoDocumento int primary key,
 descripcion varchar (20) not null
 );
-
-
-
 
 create table tb_Cliente(
 idCliente int primary key auto_increment,
@@ -34,21 +29,15 @@ idTipoDocumento int not null,
 documento char (8) not null,
 cod_Ubigeo char(8) not null,
 direccion varchar (85) not null
-
 );
-
 
 ALTER TABLE tb_Cliente ADD CONSTRAINT FK01 FOREIGN KEY (idTipoDocumento) REFERENCES tb_TipoDocumento (idTipoDocumento);
 ALTER TABLE tb_Cliente ADD CONSTRAINT FK02 FOREIGN KEY (cod_Ubigeo) REFERENCES tb_Ubigeo (cod_Ubigeo);
-
-
-
 
 create table tb_Categoria (
 idCategoria int primary key auto_increment,
 nombre varchar (30)not null
 );
-
 
 create table tb_Producto (
 idProducto int primary key auto_increment,
@@ -58,7 +47,6 @@ stock int not null
 );
 
 ALTER TABLE tb_Producto ADD CONSTRAINT FK03 FOREIGN KEY (idCategoria) REFERENCES tb_Categoria (idCategoria); 
-
 
 create table tb_Precio (
 idPrecio int primary key not null,
@@ -70,13 +58,10 @@ precioUnitario decimal not null
 ALTER TABLE tb_Precio ADD CONSTRAINT FK04 FOREIGN KEY (idProducto) REFERENCES tb_Producto (idProducto); 
 ALTER TABLE tb_Precio ADD CONSTRAINT FK05 FOREIGN KEY (idCategoria) REFERENCES tb_Categoria (idCategoria); 
 
-
-
 create table tb_MetodoPago(
 idMetodoPago int primary key,
 descripcion varchar (20) not null
 );
-
 
 create table tb_PrecioDelivery(
 idDelivery int primary key,
@@ -86,7 +71,6 @@ Costo decimal not null
 
 ALTER TABLE tb_PrecioDelivery ADD CONSTRAINT FK28 FOREIGN KEY (cod_Ubigeo) REFERENCES tb_Ubigeo (cod_Ubigeo); 
 
-
 create table tb_TipoPedido(
 idTipoPedido int primary key,
 descripcion varchar (75) not null,
@@ -94,8 +78,6 @@ idDelivery int not null
 );
 
 ALTER TABLE tb_TipoPedido ADD CONSTRAINT FK06 FOREIGN KEY (idDelivery) REFERENCES tb_PrecioDelivery (idDelivery); 
-
-
 
 create table tb_Pedido (
 idPedido int primary key auto_increment,
@@ -114,8 +96,6 @@ ALTER TABLE tb_Pedido ADD CONSTRAINT FK08 FOREIGN KEY (idTipoPedido) REFERENCES 
 ALTER TABLE tb_Pedido ADD CONSTRAINT FK09 FOREIGN KEY (idMetodoPago) REFERENCES tb_MetodoPago (idMetodoPago); 
 ALTER TABLE tb_Pedido ADD CONSTRAINT FK10 FOREIGN KEY (cod_Ubigeo) REFERENCES tb_Ubigeo (cod_Ubigeo); 
 
-
-
 create table tb_DetallePedido (
 idDetallePedido int primary key auto_increment,
 idPedido int not null,
@@ -124,12 +104,9 @@ cantidad int not null,
 idPrecio int not null
 );
 
-
-
 ALTER TABLE tb_DetallePedido ADD CONSTRAINT FK11 FOREIGN KEY (idPedido) REFERENCES tb_Pedido (idPedido); 
 ALTER TABLE tb_DetallePedido ADD CONSTRAINT FK12 FOREIGN KEY (idProducto) REFERENCES tb_Producto (idProducto); 
 ALTER TABLE tb_DetallePedido ADD CONSTRAINT FK13 FOREIGN KEY (idPrecio) REFERENCES tb_Precio (idPrecio); 
-
 
 create table tb_Local (
 idLocal int primary key,
@@ -140,9 +117,7 @@ telefono char (15) not null,
 horarioAtencion datetime
 );
 
-
 ALTER TABLE tb_Local ADD CONSTRAINT FK14 FOREIGN KEY (cod_Ubigeo) REFERENCES tb_Ubigeo (cod_Ubigeo); 
-
 
 create table tb_Reserva (
 idReserva int primary key auto_increment,
@@ -159,17 +134,12 @@ observacion varchar (100) null,
 estado int not null
 );
 
-
 ALTER TABLE tb_Reserva ADD CONSTRAINT FK15 FOREIGN KEY (idLocal) REFERENCES tb_Local (idLocal); 
-
-
 
 create table tb_TipoComprobante (
 TipoComprobante char(5) primary key,
 descripcion varchar(35) not null
 );
-
-
 
 create table tb_ComprobantePago (
 TipoComprobante char(5) not null,
@@ -182,12 +152,9 @@ ImporteTotal decimal not null,
 primary key (TipoComprobante,NumComprobante)
 );
 
-
 ALTER TABLE tb_ComprobantePago ADD CONSTRAINT FK18 FOREIGN KEY (TipoComprobante) REFERENCES tb_TipoComprobante (TipoComprobante); 
 ALTER TABLE tb_ComprobantePago ADD CONSTRAINT FK19 FOREIGN KEY (idPedido) REFERENCES tb_Pedido (idPedido); 
 ALTER TABLE tb_ComprobantePago ADD CONSTRAINT FK20 FOREIGN KEY (idTipoPedido) REFERENCES tb_TipoPedido (idTipoPedido); 
-
-
 
 create  table tb_Usuario(
 idUsuario int primary key auto_increment,
@@ -199,16 +166,12 @@ documento char (8) not null,
 correo varchar (55) not null,
 clave varchar (100) not null);
 
-
 ALTER TABLE tb_Usuario ADD CONSTRAINT FK21 FOREIGN KEY (idTipoDocumento) REFERENCES tb_TipoDocumento (idTipoDocumento); 
-
 
 create table tb_Cargo (
 idCargo int primary key auto_increment,
 descripcion varchar(20) not null
 );
-
-
 
 create table tb_Empleado (
 idEmpleado int primary key ,
@@ -222,23 +185,18 @@ idCargo int not null,
 cod_Ubigeo char(8) not null,
 direccion varchar (75) null,
 idLocal int not null
-); 
-
-
-
+);
+ 
 ALTER TABLE tb_Empleado ADD CONSTRAINT FK22 FOREIGN KEY (idTipoDocumento) REFERENCES tb_TipoDocumento (idTipoDocumento); 
 ALTER TABLE tb_Empleado ADD CONSTRAINT FK23 FOREIGN KEY (idCargo) REFERENCES tb_Cargo (idCargo); 
 ALTER TABLE tb_Empleado ADD CONSTRAINT FK24 FOREIGN KEY (cod_Ubigeo) REFERENCES tb_Ubigeo (cod_Ubigeo); 
 ALTER TABLE tb_Empleado ADD CONSTRAINT FK25 FOREIGN KEY (idLocal) REFERENCES tb_Local (idLocal); 
-
-
 
 create table tb_TomaPedido (
 idPedido int not null,
 idEmpleado int not null,
 primary key (idPedido,idEmpleado)
 );
-
 
 ALTER TABLE tb_TomaPedido ADD CONSTRAINT FK26 FOREIGN KEY (idPedido) REFERENCES tb_Pedido (idPedido); 
 ALTER TABLE tb_TomaPedido ADD CONSTRAINT FK27 FOREIGN KEY (idEmpleado) REFERENCES tb_Empleado (idEmpleado);

@@ -9,11 +9,11 @@ INDEX VERSION 1.131+C:\Users\alfre\OneDrive\Escritorio\PROYECTO_DAWI\.metadata\.
 3457155593.index
 656831924.index
 2944883537.index
+2894258636.index
 1263670076.index
-3130791779.index
 2490332267.index
 765072137.index
-2894258636.index
+3130791779.index
 2442475359.index
 4227155516.index
 2129426934.index
@@ -22,8 +22,8 @@ INDEX VERSION 1.131+C:\Users\alfre\OneDrive\Escritorio\PROYECTO_DAWI\.metadata\.
 4252917573.index
 3450884034.index
 75159326.index
-3811444040.index
 381151220.index
+3811444040.index
 2952237720.index
 3309151740.index
 4287885058.index
@@ -38,9 +38,9 @@ INDEX VERSION 1.131+C:\Users\alfre\OneDrive\Escritorio\PROYECTO_DAWI\.metadata\.
 3470639558.index
 4038127878.index
 1297471919.index
-2636497540.index
-3988054952.index
 2243534661.index
+3988054952.index
+2636497540.index
 3368425200.index
 3717129212.index
 3670635318.index
@@ -48,10 +48,10 @@ INDEX VERSION 1.131+C:\Users\alfre\OneDrive\Escritorio\PROYECTO_DAWI\.metadata\.
 3755598795.index
 3078784023.index
 617620784.index
-2754395369.index
-2494195935.index
 1232755458.index
+2494195935.index
 3296659375.index
+2754395369.index
 1114198548.index
 1309116259.index
 1545941233.index
@@ -74,7 +74,6 @@ INDEX VERSION 1.131+C:\Users\alfre\OneDrive\Escritorio\PROYECTO_DAWI\.metadata\.
 2732310904.index
 1671909555.index
 3708158161.index
-1872780984.index
 1835788976.index
 159253445.index
 4211989830.index
