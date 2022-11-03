@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Ciberfarma</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<header th:replace="principal :: header"> </header>
+		<main>
+			<nav th:replace="principal :: menu"></nav>
+			<section style="width: 65%; float: left;">
+				<!-- cuerpo de la p�gina -->
+				<h1>Actualiza Usuario</h1>
+				<form action="/usuario/actualizar/cargar" method="post" th:object="${usuario}">
+					<div class="form-group">
+						<label for="inputNombre">Nombre:</label> 
+						<input type="text"
+							th:field="*{nom_usua}" class="form-control" id="inputNombre"
+							placeholder="Ingrese su nombre">
+					</div>
+					<div class="form-group">
+						<label for="inputApellido">Apellido:</label> 
+						<input type="text" 
+							th:field="*{ape_usua}" class="form-control" id="inputApellido"
+							placeholder="Ingrese su apellido">
+					</div>
+					<div class="form-group">
+					<label for="inputUsuario">Usuario:</label>
+					<input type="email"
+						th:field="*{correo}" class="form-control" id="inputUsuario"
+						placeholder="Ingrese su correo">
+					</div>
+					<div class="form-group">
+					<label for="inputClave">Contrasena:</label>
+					<input type="password"
+						th:field="*{clave}" class="form-control" id="inputClave"
+						placeholder="Ingrese Password">
+					</div>
+					<div class="form-group">
+					<label for="inputFechaNacimiento">Fecha de Nacimiento:</label>
+					<input type="date"
+						th:field="*{fna_usua}" class="form-control" id="inputFechaNacimiento"
+						placeholder="a�o/mes/dia">
+					</div>
+					<button type="submit" class="btn btn-primary">Actualizar datos</button>
+				</form>
+				<br>
+				<div th:class="${clasemensaje}" role="alert" th:text="${mensaje}">
+				</div>
+			</section>
+		</main>
+		<footer> </footer>
+	</div>
+</body>
+</html>
