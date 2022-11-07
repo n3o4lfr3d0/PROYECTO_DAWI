@@ -821,3 +821,17 @@
 2022-11-06 21:09:57,917 [Worker-42: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2022-11-06 21:09:57,918 [Worker-42: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2022-11-06 21:09:57,918 [Worker-42: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\alfre\OneDrive\Escritorio\PROYECTO_DAWI\SaborCriollo\src\test\resources
+2022-11-06 21:42:17,166 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-11-06 21:42:17,167 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-11-06 21:42:17,174 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-11-06 21:42:17,238 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 84 resources
+2022-11-06 21:42:17,277 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-11-06 21:42:17,277 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-11-06 21:42:17,277 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\alfre\OneDrive\Escritorio\PROYECTO_DAWI\SaborCriollo\src\test\resources
+2022-11-06 21:42:58,753 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-11-06 21:42:58,753 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-11-06 21:42:58,761 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-11-06 21:42:58,779 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 84 resources
+2022-11-06 21:42:58,816 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-11-06 21:42:58,816 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-11-06 21:42:58,816 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\alfre\OneDrive\Escritorio\PROYECTO_DAWI\SaborCriollo\src\test\resources
