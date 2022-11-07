@@ -29,7 +29,7 @@ public class Pedido {
 		return objCliente;
 	}
 
-	public void setobjTipoDocumento(Cliente objCliente) {
+	public void setobjCliente(Cliente objCliente) {
 		this.objCliente = objCliente;
 	}
 	
