@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -24,7 +26,7 @@ public class Pedido {
 	private String direccionPedido;
 	private int estado;
 
-	/*public Cliente getobjCliente() {
+	public Cliente getobjCliente() {
 		return objCliente;
 	}
 
@@ -64,6 +66,6 @@ public class Pedido {
 	@JoinColumn(name="idMetodoPago",insertable = false,updatable = false)
 	private MetodoPago objMetodoPago;
 	@JoinColumn(name="cod_Ubigeo",insertable = false,updatable = false)
-	private Ubigeo objUbigeo;*/
+	private Ubigeo objUbigeo;
 }
 
