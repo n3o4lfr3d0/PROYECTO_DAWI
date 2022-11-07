@@ -13,5 +13,12 @@ import com.saborcriollo.repository.IClienteRepository;
 @Controller
 public class ClienteController {
 
+	@Autowired
+	private IClienteRepository repocli;
 	
+	@GetMapping("/cliente/cargar")
+	public String listadoDeClientes(Model model) {
+		model.addAttribute("lstClientes", repocli.findAll());
+		return "listado";
+	}			
 }
