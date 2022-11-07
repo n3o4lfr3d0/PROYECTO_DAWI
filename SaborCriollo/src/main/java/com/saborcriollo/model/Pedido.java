@@ -12,7 +12,6 @@ import lombok.Data;
 @Entity
 @Table(name = "tb_Pedido")
 public class Pedido {
-
 	@Id
 	/*@NotEmpty(message = "no debe estar vacío")*/
 	private int idPedido;
@@ -33,12 +32,12 @@ public class Pedido {
 		this.objCliente = objCliente;
 	}
 	
-	public Pedido getobjPedido() {
-		return objPedido;
+	public TipoPedido getobjTipoPedido() {
+		return objTipoPedido;
 	}
 
-	public void setobjPedido(Pedido objPedido) {
-		this.objPedido = objPedido;
+	public void setobjPedido(TipoPedido objTipoPedido) {
+		this.objTipoPedido = objTipoPedido;
 	}
 	
 	public MetodoPago getobjMetodoPago() {
