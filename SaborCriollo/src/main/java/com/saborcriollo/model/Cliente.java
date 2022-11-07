@@ -32,17 +32,17 @@ public class Cliente {
 		this.objTipoDocumento = objTipoDocumento;
 	}
 	
-	public Ubigeo getobjUbigeo() {
+	/*public Ubigeo getobjUbigeo() {
 		return objUbigeo;
 	}
 
 	public void setobjUbigeo(Ubigeo objUbigeo) {
 		this.objUbigeo = objUbigeo;
-	}
+	}*/
 	
 	@ManyToOne
 	@JoinColumn(name="idTipoDocumento",insertable = false,updatable = false)
 	private TipoDocumento objTipoDocumento;
-	@JoinColumn(name="cod_Ubigeo",insertable = false,updatable = false)
-	private Ubigeo objUbigeo;
+	/*@JoinColumn(name="cod_Ubigeo",insertable = false,updatable = false)
+	private Ubigeo objUbigeo;*/
 }

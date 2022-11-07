@@ -6,63 +6,67 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import com.saborcriollo.model.Cliente;
+import com.saborcriollo.model.Pedido;
 import com.saborcriollo.repository.IClienteRepository;
+import com.saborcriollo.repository.IMetodoPagoRepository;
+import com.saborcriollo.repository.IPedidoRepository;
+import com.saborcriollo.repository.ITipoPedidoRepository;
+import com.saborcriollo.repository.IUbigeoRepository;
 
 @Controller
 public class PedidoController {
 
-	// llama al repository de Clientes
 	@Autowired
-	private IClienteRepository recliente;
+	private IClienteRepository repocli;
 	
-	/*@Autowired
-	private IMetodoPagoRepository remetodo;*/
+	@Autowired
+	private ITipoPedidoRepository repotipope;
 	
-	@GetMapping("/clientes/cargar")
-	public String abrirPagCliente(Model model) {
-		model.addAttribute("cliente", new Cliente());
-		model.addAttribute("lstClientes", recliente.findAll()); // select * from...
-		// enviar listado clientes
-		return "crudclientes";
+	@Autowired
+	private IMetodoPagoRepository remetodo;
+	
+	@Autowired
+	private IUbigeoRepository repoubigeo;
+	
+	@Autowired
+	private IPedidoRepository repopedi;
+	
+	@GetMapping("/pedido/cargar")
+	public String abrirPagPedido(Model model) {
+		model.addAttribute("pedido", new Pedido());
+		model.addAttribute("lstPedidos", repopedi.findAll());
+		return "crudpedidos";
 	}
 	
-	@GetMapping("/clientes/listado")
+	@GetMapping("/pedido/listado")
 	public String listadoDeClientes(Model model) {
-		// obtener un listado de los clientes y enviar a la página listado
-		model.addAttribute("lstClientes", recliente.findAll());
+		model.addAttribute("lstPedidos", repopedi.findAll());
 		return "listado";
 	}
 	
-	/*@PostMapping("/clientes/editar")
-	public String cargarCliente(@ModelAttribute Cliente cl, Model model) {
-		// lee el obj c de Cliente enviado desde el listado
-		// obtiene el contenido del Cliente y lo envía a la página
-		model.addAttribute("cliente", recliente.findById(cl.getIdCliente()));
+	/*@PostMapping("/pedido/editar")
+	public String cargarPedido(@ModelAttribute Pedido p, Model model) {
+		model.addAttribute("pedido", repopedi.findById(p.getIdPedido()));
 		
-		model.addAttribute("lstClientes", recliente.findAll()); 
-		// enviar listado clientes
-		return "crudclientes";
+		model.addAttribute("lstTipoPedidos", repotipope.findAll());
+		return "crudpedidos";
 	}*/
 	
-	@PostMapping("/clientes/grabar")
-	public String leerPagCliente(@ModelAttribute Cliente cliente, 
+	@PostMapping("/pedido/grabar")
+	public String leerPagPedido(@ModelAttribute Pedido pedido, 
 				  Model model) {
-		System.out.println(cliente);
-		// grabar en la tabla
+		System.out.println(pedido);
 		
 		try {
-			recliente.save(cliente); 
-			model.addAttribute("mensaje", "Cliente agregado");
+			repopedi.save(pedido); 
+			model.addAttribute("mensaje", "Pedido agregado");
 			model.addAttribute("clasemensaje", "alert alert-success");
 		} catch (Exception e) {
-			model.addAttribute("mensaje", "Error al registrar Cliente");
+			model.addAttribute("mensaje", "Error al registrar Pedido");
 			model.addAttribute("clasemensaje", "alert alert-danger");
 		}
 		
-		model.addAttribute("lstCategorias", recliente.findAll()); // select * from...
-		// enviar listado clientes
-		return "crudclientes";
+		model.addAttribute("lstPedidos", repopedi.findAll());
+		return "crudpedidos";
 	}
 }
