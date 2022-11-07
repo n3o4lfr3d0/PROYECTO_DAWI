@@ -2,6 +2,8 @@ package com.saborcriollo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -22,7 +24,7 @@ public class Cliente {
 	private String cod_Ubigeo;
 	private String direccion;
 
-	/*public TipoDocumento getobjTipoDocumento() {
+	public TipoDocumento getobjTipoDocumento() {
 		return objTipoDocumento;
 	}
 
@@ -42,5 +44,5 @@ public class Cliente {
 	@JoinColumn(name="idTipoDocumento",insertable = false,updatable = false)
 	private TipoDocumento objTipoDocumento;
 	@JoinColumn(name="cod_Ubigeo",insertable = false,updatable = false)
-	private Ubigeo objUbigeo;*/
+	private Ubigeo objUbigeo;
 }

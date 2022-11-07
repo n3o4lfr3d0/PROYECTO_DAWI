@@ -1,5 +1,17 @@
 package com.saborcriollo.model;
 
-public class MetodoPago {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "tb_MetodoPago")
+public class MetodoPago {
+	@Id
+	/*@NotEmpty(message = "no debe estar vacío")*/
+	private int idMetodoPago;
+	private String descripcion;
 }
