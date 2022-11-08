@@ -1,2 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.text.DecimalFormat"/>
+    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
+    <fullyQualifiedTypeName name="com.saborcriollo.model.TipoPedido"/>
+    <fullyQualifiedTypeName name="com.saborcriollo.model.PrecioDelivery"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="com.saborcriollo.model.TipoDocumento"/>
+    <fullyQualifiedTypeName name="com.saborcriollo.model.Ubigeo"/>
+    <fullyQualifiedTypeName name="com.saborcriollo.model.MetodoPago"/>
+    <fullyQualifiedTypeName name="com.saborcriollo.repository.ITipoDocumentoRepository"/>
+    <fullyQualifiedTypeName name="com.saborcriollo.repository.IUbigeoRepository"/>
+    <fullyQualifiedTypeName name="com.saborcriollo.repository.IMetodoPagoRepository"/>
+    <fullyQualifiedTypeName name="com.saborcriollo.repository.ITipoPedidoRepository"/>
+    <fullyQualifiedTypeName name="com.saborcriollo.repository.IPedidoRepository"/>
+    <fullyQualifiedTypeName name="com.saborcriollo.model.Pedido"/>
+</qualifiedTypeNameHistroy>
