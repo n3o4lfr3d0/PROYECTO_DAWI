@@ -31,14 +31,14 @@ public class PedidoController {
 	@Autowired
 	private IPedidoRepository repopedi;
 	
-	@GetMapping("/pedido/cargar")
+	@GetMapping("/pedidos/cargar")
 	public String abrirPagPedido(Model model) {
 		model.addAttribute("pedido", new Pedido());
 		model.addAttribute("lstPedidos", repopedi.findAll());
 		return "crudpedidos";
 	}
 	
-	@GetMapping("/pedido/listado")
+	@GetMapping("/pedidos/listado")
 	public String listadoDeClientes(Model model) {
 		model.addAttribute("lstPedidos", repopedi.findAll());
 		return "listado";
@@ -52,7 +52,7 @@ public class PedidoController {
 		return "crudpedidos";
 	}*/
 	
-	@PostMapping("/pedido/grabar")
+	@PostMapping("/pedidos/grabar")
 	public String leerPagPedido(@ModelAttribute Pedido pedido, 
 				  Model model) {
 		System.out.println(pedido);
