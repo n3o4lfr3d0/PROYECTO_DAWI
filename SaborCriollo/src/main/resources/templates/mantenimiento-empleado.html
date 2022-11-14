@@ -1,10 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>crud empleado</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 </head>
 <body>
+	<div class="container mt-4">
+		<br>
 
+		<form action="/empleado/grabar" method="post" th:object=${Empleado}>
+			<!-- 		<form onsubmit="grabar()" method="post" th:object=${Bus}> -->
+
+
+
+			<div class="card">
+				<div class="card-header">
+					<h1>:::MANTENIMIENTO EMPLEADO:::</h1>
+
+				</div>
+			</div>
+
+			<div class="form-group col-md-6">
+				<label>ID</label> <input th:field="*{idEmpleado}" type="text"
+					class="form-control" />
+
+			</div>
+
+
+			<div class="form-group col-md-6">
+				<label>NOMBRE</label> <input type="text" th:field="*{nombre}"
+					class="form-control" />
+
+			</div>
+
+
+
+			<div class="form-group col-md-6">
+				<label> APELLIDO</label> <input type="text" th:field="*{apellido}"
+					class="form-control">
+			</div>
+
+
+			<div class="form-group col-md-6">
+				<label> CORREO </label> <input type="text" th:field="*{correo}"
+					class="form-control" placeholder="0000">
+
+			</div>
+
+			<div class="form-group col-md-6">
+				<label> TELEFONO </label> <input type="text" th:field="*{telefono}"
+					class="form-control" placeholder="000000000">
+
+			</div>
+
+
+			<div class="form-group col-md-6">
+				<label>TIPO DE DOCUMENTO</label> <select class="form-control"
+					th:field="*{idTipoDocumento}">
+					<option value="0" selected>...Seleccione</option>
+					<option th:each="td : ${lstDocumento}"
+						th:value="${td.idTipoDocumento}" th:text="${td.descripcion}"></option>
+				</select>
+			</div>
+
+
+			<div class="form-group col-md-6">
+				<label> DOCUMENTO </label> <input type="text"
+					th:field="*{documento}" class="form-control"
+					placeholder="000000000">
+
+			</div>
+
+
+			<div class="form-group col-md-6">
+				<label>CARGO</label> <select class="form-control"
+					th:field="*{idCargo}">
+					<option value="0" selected>...Seleccione</option>
+					<option th:each="c:${lstCargo}" th:value="${c.idCargo}"
+						th:text="${c.descripcion}"></option>
+				</select>
+			</div>
+
+			<div class="form-group col-md-6">
+				<label>UBIGEO</label> <select class="form-control"
+					th:field="*{cod_Ubigeo}">
+					<option value="0" selected>...Seleccione</option>
+					<option th:each="ubi:${lstUbigeo}" th:value="${ubi.cod_Ubigeo}"
+						th:text="${ubi.distrito}"></option>
+				</select>
+			</div>
+
+			<div class="form-group col-md-6">
+				<label> DIRECCION </label> <input type="text"
+					th:field="*{direccion}" class="form-control">
+
+			</div>
+
+
+			<div class="form-group col-md-6">
+				<label>LOCAL</label> <select class="form-control"
+					th:field="*{idLocal}">
+					<option value="0" selected>...Seleccione</option>
+					<option th:each="lo:${lstLocal}" th:value="${lo.idLocal}"
+						th:text="${lo.direccion}"></option>
+				</select>
+			</div>
+
+
+
+
+
+			<div class="form-group container mt-4 card-footer">
+				<button th:href="@{/empleado/grabar}" type="submit" class="btn btn-success">Grabar</button>
+
+				<a th:href="@{/empleado/lista}" class="btn btn-primary">Volver</a>
+			</div>
+
+
+
+			<!-- 			<div class="form-group container mt-4 card-footer"> -->
+			<!-- 				<button type="submit" class="btn btn-success">Volver</button> -->
+			<!-- 			</div> -->
+
+
+		</form>
+
+	</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="../funciones.js"></script>
 </body>
 </html>
+
