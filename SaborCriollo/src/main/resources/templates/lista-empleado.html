@@ -2,74 +2,74 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>lista empleados</title>
+<title>LISTA DE EMPLEADOS</title>
 <link rel="stylesheet"
- href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" >
-
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 
 </head>
 <body>
-<br>
-<br>
+	<div class="container mt-4">
 
-   <h1>::::CONSULTA EMPLEADOS::::</h1>
-   <br>
-   <br>
- 
-  
-   <table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">CODIGO</th>
-      <th scope="col">NOMBRE</th>
-      <th scope="col">APELLIDO</th>
-      <th scope="col">CORREO</th>
-      <th scope="col">TIPO DOC.</th>
-      <th scope="col">DOCUMENTO</th>
-      <th scope="col">CARGO</th>
-      <th scope="col">UBIGEO</th>
-      <th scope="col">DIRECCION</th>
-      <th scope="col">LOCAL</th>
-      
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr th:each="b : ${lstEmpleados}">
-      <th scope="row" th:text="${b.idEmpleado}"></th>
-      <td th:text="${b.nombre}"></td>
-      <td th:text="${b.apellido}"></td>
-      <td th:text="${b.correo}"></td>
-      <td th:text="${b.telefono}"></td>
-      <td th:text="${b.idTipoDocumento}"></td>
-      <td th:text="${b.documento}"></td>
-      <td th:text="${b.idCargo}"></td>
-      <td th:text="${b.cod_Ubigeo}"></td>
-      <td th:text="${b.direccion}"></td>
-      <td th:text="${b.idLocal}"></td>
-      
-      
-     <td>
-      	<form action ="/actualiza" method ="post">
-	      <input type="hidden" th:value="${b.cod_bus}" name="cod_bus">
-	      <button type="submit" class="btn btn-link" >edit</button>	
-      	</form>
-      </td>
-   
-   
-  
-     
-      
+		<br> <br>
 
-      <td></td>
-    </tr>
+		<h1>CONSULTA DE EMPLEADOS</h1>
+		<a th:href="@{/agregar}" class="btn btn-primary">Registrar</a> <br>
+		<br>
 
-  </tbody>
-</table>
+
+
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">NOMBRE</th>
+					<th scope="col">APELLIDO</th>
+					<th scope="col">CORREO</th>
+					<th scope="col">TELEFONO</th>
+					<th scope="col">TIPO DOC.</th>
+					<th scope="col">DOCUMENTO</th>
+					<th scope="col">CARGO</th>
+					<th scope="col">UBIGEO</th>
+					<th scope="col">DIRECCION</th>
+					<th scope="col">LOCAL</th>
+					<th scope="col"></th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="e : ${lstEmpleados}">
+					<th scope="row" th:text="${e.id.Empleado}"></th>
+					<td th:text="${e.nombres}"></td>
+					<td th:text="${e.apellido}"></td>
+					<td th:text="${e.correo}"></td>
+					<td th:text="${e.telefono}"></td>
+					<td th:text="${e.idTipoDocumento}"></td>
+					<td th:text="${e.documento}"></td>
+					<td th:text="${e.idCargo}"></td>
+					<td th:text="${e.cod_Ubigeo}"></td>
+					<td th:text="${e.direccion}"></td>
+					<td th:text="${e.idLocal}"></td>
+					<td><a th:href="@{/editar/}+${b.cod_bus}"
+						class="btn btn-warning">Editar</a> <a
+						 class="btn btn-danger">Eliminar</a>
+
+					</td>
 
 
 
 
+
+
+					<td></td>
+				</tr>
+
+
+
+			</tbody>
+		</table>
+
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script src="../funciones.js"></script>
 </body>
 </html>
