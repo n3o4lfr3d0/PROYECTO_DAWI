@@ -2,7 +2,10 @@ package com.saborcriollo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import lombok.Data;
 
@@ -11,6 +14,7 @@ import lombok.Data;
 @Data
 public class Reserva {	
 	@Id
+	@NotEmpty(message = "no de estar vació")
 	private int idReserva;
 	private int idLocal;
 	private String nombreCliente;
@@ -24,6 +28,18 @@ public class Reserva {
 	private String observacion;
 	private int estado;
 	
+	@ManyToOne
+	@JoinColumn(name="idLocal", insertable = false, updatable = false)
+	private Local objLocal;
+	
+	public Local getObjLocal() {
+		return objLocal;
+	}
+
+	public void setObjLocal(Local objLocal) {
+		this.objLocal = objLocal;
+	}	
+
 	public Reserva(int idReserva, int idLocal, String nombreCliente, String apellidoCliente, String documento,
 			String correoCliente, String telefono, String fechaReserva, String horaReserva, int cantidadPersonas,
 			String observacion, int estado) {
@@ -144,7 +160,7 @@ public class Reserva {
 				+ ", apellidoCliente=" + apellidoCliente + ", documento=" + documento + ", correoCliente="
 				+ correoCliente + ", telefono=" + telefono + ", fechaReserva=" + fechaReserva + ", horaReserva="
 				+ horaReserva + ", cantidadPersonas=" + cantidadPersonas + ", observacion=" + observacion + ", estado="
-				+ estado + "]";
+				+ estado + ", objLocal=" + objLocal + "]";
 	}
-
+	
 }
