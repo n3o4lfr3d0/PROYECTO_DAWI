@@ -1,5 +1,8 @@
 package com.saborcriollo.controller;
 
-public class ReservaController {
+import org.springframework.stereotype.Controller;
 
+@Controller
+public class ReservaController {
+	
 }

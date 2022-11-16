@@ -7,6 +7,8 @@ import com.saborcriollo.model.Pedido;
 
 @Repository
 public interface IPedidoRepository 
-		extends JpaRepository<Pedido, String>{
+		extends JpaRepository<Pedido, Integer>{
+
+	Pedido findById(int idPedido);
 
 }

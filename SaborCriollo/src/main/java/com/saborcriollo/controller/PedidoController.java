@@ -31,32 +31,44 @@ public class PedidoController {
 	@Autowired
 	private IPedidoRepository repopedi;
 	
+	@GetMapping("/pedidos/filtro")
+	public String abrirPagFiltroPed(Model model) {
+		model.addAttribute("pedido", new Pedido());
+		model.addAttribute("lstTipoPedido", repotipope.findAll());
+		return "filtropedidos";
+	}
+	
+	@PostMapping("/productos/filtro")
+	public String realizaFiltroPed(Model model, @ModelAttribute Pedido pedido) {
+		System.out.println(pedido);	
+		model.addAttribute("lstTipoPedido", repotipope.findAll()); // select * from...
+		return "filtropedidos";
+	}
+	
 	@GetMapping("/pedidos/cargar")
 	public String abrirPagPedido(Model model) {
 		model.addAttribute("pedido", new Pedido());
-		model.addAttribute("lstPedidos", repopedi.findAll());
+		model.addAttribute("lstTipoPedido", repotipope.findAll());
 		return "crudpedidos";
 	}
 	
 	@GetMapping("/pedidos/listado")
 	public String listadoDeClientes(Model model) {
 		model.addAttribute("lstPedidos", repopedi.findAll());
-		return "listado";
+		return "listadopedidos";
 	}
 	
-	/*@PostMapping("/pedido/editar")
+	@PostMapping("/pedidos/editar")
 	public String cargarPedido(@ModelAttribute Pedido p, Model model) {
-		model.addAttribute("pedido", repopedi.findById(p.getIdPedido()));
-		
+		model.addAttribute("pedido", repopedi.findById(p.getIdPedido()));		
 		model.addAttribute("lstTipoPedidos", repotipope.findAll());
 		return "crudpedidos";
-	}*/
+	}
 	
 	@PostMapping("/pedidos/grabar")
 	public String leerPagPedido(@ModelAttribute Pedido pedido, 
 				  Model model) {
-		System.out.println(pedido);
-		
+		System.out.println(pedido);	
 		try {
 			repopedi.save(pedido); 
 			model.addAttribute("mensaje", "Pedido agregado");
@@ -64,9 +76,8 @@ public class PedidoController {
 		} catch (Exception e) {
 			model.addAttribute("mensaje", "Error al registrar Pedido");
 			model.addAttribute("clasemensaje", "alert alert-danger");
-		}
-		
-		model.addAttribute("lstPedidos", repopedi.findAll());
+		}		
+		model.addAttribute("lstTipoPedido", repotipope.findAll());
 		return "crudpedidos";
 	}
 }

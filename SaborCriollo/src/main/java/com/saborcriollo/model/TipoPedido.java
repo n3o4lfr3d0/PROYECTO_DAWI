@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Data
@@ -13,7 +13,7 @@ import lombok.Data;
 @Table(name = "tb_TipoPedido")
 public class TipoPedido {
 	@Id
-	/*@NotEmpty(message = "no debe estar vacío")*/
+	@NotEmpty(message = "no debe estar vacío")
 	private int idTipoPedido;
 	private String descripcion;
 	private int idDelivery;

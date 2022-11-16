@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Data
@@ -13,7 +13,7 @@ import lombok.Data;
 @Table(name = "tb_Cliente")
 public class Cliente {
 	@Id
-	/*@NotEmpty(message = "no debe estar vacío")*/
+	@NotEmpty(message = "no debe estar vacío")
 	private int idCliente;
 	private String nombre;
 	private String apellido;
@@ -32,17 +32,17 @@ public class Cliente {
 		this.objTipoDocumento = objTipoDocumento;
 	}
 	
-	/*public Ubigeo getobjUbigeo() {
+	public Ubigeo getobjUbigeo() {
 		return objUbigeo;
 	}
 
 	public void setobjUbigeo(Ubigeo objUbigeo) {
 		this.objUbigeo = objUbigeo;
-	}*/
+	}
 	
 	@ManyToOne
 	@JoinColumn(name="idTipoDocumento",insertable = false,updatable = false)
 	private TipoDocumento objTipoDocumento;
-	/*@JoinColumn(name="cod_Ubigeo",insertable = false,updatable = false)
-	private Ubigeo objUbigeo;*/
+	@JoinColumn(name="cod_Ubigeo",insertable = false,updatable = false)
+	private Ubigeo objUbigeo;
 }
